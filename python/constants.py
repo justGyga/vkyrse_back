@@ -1,4 +1,4 @@
-filename_timetables = './lib/timeteble.json'
+filename_timetables = './lib/timetable.json'
 filename_urls = './lib/urls.json'
 
 headers = {
