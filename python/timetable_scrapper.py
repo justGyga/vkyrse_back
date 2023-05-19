@@ -2,6 +2,7 @@ from my_json_lib import *
 from my_urls_lib import *
 from my_timetables_lib import *
 from constants import *
+from parser_news import *
 
 if __name__ == '__main__':
     urls = get_all_urls()
