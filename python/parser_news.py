@@ -1,8 +1,9 @@
 import json
 import requests
-from bs4 import BeautifulSoup as bs    
+from bs4 import BeautifulSoup as bs
+from my_json_lib import *
 
-def parser_whith_data():
+def parser_news_data():
     result = []
     URL_TEMPLATE = "https://tusur.ru/ru/novosti-i-meropriyatiya/novosti"
     date = requests.get(URL_TEMPLATE)
@@ -23,12 +24,11 @@ def parser_whith_data():
         r['img'] = el.find('img').get('src')
         result[i].update(r)
         
-    with open('data.json', 'w') as outfile:
-        json.dump(result, outfile)
+    data_to_json(result,'news.json')
     
     return result
 
-def parser_without_data():
+def parser_news():
     result = []
     URL_TEMPLATE = "https://tusur.ru/ru/novosti-i-meropriyatiya/novosti"
     date = requests.get(URL_TEMPLATE)
@@ -49,10 +49,4 @@ def parser_without_data():
         r['img'] = el.find('img').get('src')
         result[i].update(r)
         
-    with open('data.json', 'w') as outfile:
-        json.dump(result, outfile)
-    
-def data_from_json():
-    with open('data.json') as json_file:
-        data = json.load(json_file)
-    return data
+    data_to_json(result, 'news.json')
